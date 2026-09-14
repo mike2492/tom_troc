@@ -1,0 +1,119 @@
+body{
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10.42%;
+}
+
+/* ===== Header ===== */
+.site-header {
+    background: #F5F3EF;
+}
+.site-header__inner {
+    height: 84px;
+    display: flex;
+    align-items: center;
+}
+.site-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 5.42%;
+}
+
+.site-nav { display: flex; align-items: center; }
+.site-nav a { white-space: nowrap; color: #292929; text-decoration: none; font-size: 14px;
+font-family: "Inter", sans-serif; font-weight: 400; letter-spacing: 0.28px; }
+.site-nav--main {
+    gap: 44px;
+}
+.site-nav--user {
+    gap: 58px;
+    margin-left: 18.47%;
+}
+
+.site-nav--user > a > span{
+    display: flex;
+    gap: 5px;
+}
+
+/** FOOTER **/
+
+footer{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 40px;
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    height: 61px;
+}
+
+footer a{
+    text-decoration: none;
+    color: #292929;
+}
+
+.footer-logo{
+    padding-right: 23px;
+}
+
+/* HERO */
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 108px;
+    padding-top: 80px;
+    padding-bottom: 128px;
+    background-color: #F5F3EF;
+}
+
+.hero__content{
+    width: 33%;
+}
+
+.hero__content h1{
+    font-size: 36px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+}
+
+.hero__content p{
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    margin-bottom: 62px;
+}
+
+.btn--primary{
+    width: 152px;
+    height: 63px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #00AC66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+figure{
+    margin: 0;
+}
+
+figcaption{
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    color: #A6A6A6;
+    font-style: italic;
+}
