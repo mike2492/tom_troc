@@ -304,3 +304,79 @@ figcaption{
     font-style: italic;
     color: #A6A6A6;
 }
+
+/* LOGIN */
+.auth-page{
+    display: flex;
+}
+
+.auth-page__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.auth-page__form > h1{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    font-size: 36px;
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+}
+
+.auth-page__form > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-page__form > form > .field{
+    display: flex; 
+    flex-direction: column;
+}
+
+.field > input{
+    width: 322px;
+    height: 50px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+}
+
+.field > label{
+    padding-top: 32px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    color: #A6A6A6;
+}
+
+.field > input:focus{
+    outline: none;
+}
+
+.auth-page__form > form > .btn--primary{
+    margin-top: 32px;
+    width: 322px;
+    height: 63px;
+}
+
+.auth-page__switch{
+    display: flex;
+    justify-content: center;
+    width: 78%;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+.auth-page__switch > a{
+    padding-left: 5px;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    color: #292929;
+}
