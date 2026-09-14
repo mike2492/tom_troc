@@ -1,0 +1,32 @@
+# Configuration sensible
+/config/config.php
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/logs/
+
+# Cache / temp files
+*.cache
+*.tmp
+/tmp/
+
+# Uploaded user content (images de livres/avatars en local)
+/public/assets/images/uploads/
