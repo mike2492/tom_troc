@@ -12,6 +12,6 @@ abstract class Controller{
         ob_start();
         require __DIR__ . '/../View/' . $view . '.php';
         $content = ob_get_clean();
-        require __DIR___ . '/../View/layout/main.php'; 
+        require __DIR__. '/../View/layout/main.php'; 
     }
 }
