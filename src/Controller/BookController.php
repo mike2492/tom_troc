@@ -4,9 +4,15 @@ class BookController extends Controller {
 
     public function list(){
         $bookManager = new BookManager();
+        $userManager = new UserManager();
         $search = $_GET['search'] ?? null;
         $books = $bookManager->findAvailable($search);
-        $this->render('book/list', ['books' => $books]);    
+
+        $owners = [];
+        foreach($books as $book){
+            $owners[$book->getUserId()] = $userManager->findById($book->getUserId());
+        }
+        $this->render('book/list', ['books' => $books, 'owners' => $owners]);    
     }
 
     public function show(){
