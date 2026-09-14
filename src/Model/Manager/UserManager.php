@@ -56,4 +56,35 @@ class UserManager{
 
         return $user;
     }
+
+    public function findById(int $id) : ?User{
+        $stmt = $this->db->prepare('SELECT * FROM users WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+
+        $data = $stmt->fetch();
+        if($data === false){
+            return null;
+        }
+
+        $user = new User();
+        $user->setId($data['id']);
+        $user->setUsername($data['username']);
+        $user->setEmail($data['email']);
+        $user->setPassword($data['password']);
+        $user->setAvatar($data['avatar']);
+        $user->setCreatedAt(new DateTime($data['created_at']));
+
+        return $user;
+    }
+
+    public function update(User $user) : bool{
+        $stmt = $this->db->prepare('UPDATE users SET username = :username, email = :email, password= :password, avatar = :avatar WHERE id = :id');
+        return $stmt->execute([
+            'username' => $user->getUsername(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
+            'avatar' => $user->getAvatar(),
+            'id' => $user->getId()
+        ]);
+    }
 }
