@@ -68,7 +68,7 @@ class BookController extends Controller {
             }
         }
 
-        $this->render('book/form', ['errors' => $errors]);
+        $this->render('book/form', ['errors' => $errors, 'book' => null]);
     }
 
     public function edit(){
