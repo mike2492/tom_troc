@@ -140,4 +140,28 @@ class BookManager{
             'id' => $id
         ]);
     }
+
+    public function findLatest(int $limit = 4) : array{
+        $stmt = $this->db->prepare('SELECT * FROM books ORDER BY created_at DESC LIMIT :limit');
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $books = [];
+        $rows = $stmt->fetchAll();
+        foreach($rows as $row){
+            $book = new Book();
+            $book->setId($row['id']);
+            $book->setTitle($row['title']);
+            $book->setAuthor($row['author']);
+            $book->setDescription($row['description']);
+            $book->setPicture($row['picture']);
+            $book->setAvailability($row['availability']);
+            $book->setCreatedAt(new DateTime($row['created_at']));
+            $book->setUserId($row['user_id']);
+
+            $books[] = $book;
+        }
+
+        return $books;
+    }
 }
