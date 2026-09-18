@@ -2,9 +2,9 @@
 spl_autoload_register(function($class){
     $paths = [
         __DIR__ . '/',
-        __DIR__ . '/../src/Model/Entity/',
-        __DIR__ . '/../src/Model/Manager/',
-        __DIR__ . '/../src/Controller/'
+        __DIR__ . '/../Model/Entity/',
+        __DIR__ . '/../Model/Manager/',
+        __DIR__ . '/../Controller/'
     ];
 
     foreach($paths as $path){
