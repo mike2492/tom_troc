@@ -7,7 +7,7 @@ class BookManager{
         $this->db = Database::getInstance();
     }
 
-    public function create(Book $book) : void{
+    public function create(Book $book) : int{
         $stmt = $this->db->prepare('INSERT INTO books (title, author, description, picture, user_id) VALUES (:title, :author, :description, :picture, :user_id)');
         $stmt->execute([
             'title' => $book->getTitle(),
@@ -16,6 +16,9 @@ class BookManager{
             'picture' => $book->getPicture(),
             'user_id' => $book->getUserId()
         ]);
+
+        $id = (int) $this->db->lastInsertId();
+        return $id;
     }
 
     public function findById(int $id) : ?Book{
