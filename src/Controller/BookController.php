@@ -70,4 +70,75 @@ class BookController extends Controller{
 
         $this->render('books/form', ['errors' => $errors, 'book' => null]);
     }
+
+
+    public function edit(){
+
+        $this->requireAuth();
+        $id = (int) $_GET['id'];
+        $bookManager = new BookManager();
+        $book = $bookManager->findById($id);
+
+        if($book === null){
+            header('Location: index.php?controller=book&action=index');
+            exit;
+        }
+
+        if($book->getUserId() !== $_SESSION['user_id']){
+            header('Location: index.php?controller=book&action=index');
+            exit;
+        }
+
+        $errors = [];
+        
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $title = trim($_POST['title']);
+            $author = trim($_POST['author']);
+            $description = trim($_POST['description']);
+            $availability = $_POST['availability'];
+
+            if(!empty($title)){
+                $book->setTitle($title);
+            }
+
+            if(!empty($author)){
+                $book->setAuthor($author);
+            }
+
+            if(!empty($description)){
+                $book->setDescription($description);
+            }
+
+            if(!empty($availability)){
+                $book->setAvailability($availability);
+            }
+
+            $bookManager->update($book);
+            header('Location: index.php?controller=account&action=index');
+            exit;
+        }
+
+        $this->render('books/form', ['book' => $book, 'errors' => $errors]);
+    }
+
+    public function delete(){
+        $this->requireAuth();
+        $id = (int) $_GET['id'];
+        $bookManager = new BookManager();
+        $book = $bookManager->findById($id);
+
+        if($book === null){
+            header('Location: index.php?controller=book&action=index');
+            exit;
+        }
+
+        if($book->getUserId() !== $_SESSION['user_id']){
+            header('Location: index.php?controller=book&action=index');
+            exit;
+        }
+
+        $bookManager->delete($id);
+        header('Location: index.php?controller=account&action=index');
+        exit;
+    }
 }
