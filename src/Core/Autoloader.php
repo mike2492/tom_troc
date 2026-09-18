@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function($class){
     $paths = [
-        __DIR__ . '/../src/Core/',
+        __DIR__ . '/',
         __DIR__ . '/../src/Model/Entity/',
         __DIR__ . '/../src/Model/Manager/',
         __DIR__ . '/../src/Controller/'
